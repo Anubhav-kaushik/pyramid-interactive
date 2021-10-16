@@ -1,0 +1,67 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318 235" width="318" height="235">
+	<title>Text</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #7f60a9 } 
+		.txt1 { font-size: 36px;line-height: 72px;fill: #fdf5e9;font-weight: 400;font-family: "Cabin-Regular", "Cabin" } 
+		.shp2 { fill: #576c76 } 
+		.shp3 { fill: #89a5a8 } 
+		.shp4 { fill: #87b157 } 
+		.shp5 { fill: #fbc379 } 
+		.shp6 { fill: #ce7548 } 
+		.shp7 { fill: #c04547 } 
+	</style>
+	<g id="Text">
+		<g id="pyramid">
+			<g id="level-7">
+				<path id="level-7-bg" class="shp0" d="M157.25 0.56L137.31 30.17L177.63 30.17L157.25 0.56Z" />
+				<text id="level-7-text" style="transform: matrix(0.5,0,0,0.5,160.497,25.822)" >
+					<tspan x="-17.999" y="0" class="txt1">7
+</tspan>
+				</text>
+			</g>
+			<g id="level-6">
+				<path id="level-6-bg" class="shp2" d="M177.64 30.18L137.3 30.18L114.25 64.41L201.2 64.41L177.64 30.18Z" />
+				<text id="level-6-text" style="transform: matrix(0.5,0,0,0.5,159.997,51.159)" >
+					<tspan x="-20.325" y="0" class="txt1">6
+</tspan>
+				</text>
+			</g>
+			<g id="level-5">
+				<path id="level-5-bg" class="shp3" d="M224.71 98.63L201.2 64.42L114.25 64.42L91.19 98.66L224.71 98.63Z" />
+				<text id="level-5-text" style="transform: matrix(0.5,0,0,0.5,159.997,86.303)" >
+					<tspan x="-19.358" y="0" class="txt1">5
+</tspan>
+				</text>
+			</g>
+			<g id="level-4">
+				<path id="level-4-bg" class="shp4" d="M224.76 98.64L91.2 98.64L68.49 132.37L247.99 132.37L224.76 98.64Z" />
+				<text id="level-4-text" style="transform: matrix(0.5,0,0,0.5,159.997,123.082)" >
+					<tspan x="-20.682" y="0" class="txt1">4
+</tspan>
+				</text>
+			</g>
+			<g id="level-3">
+				<path id="level-3-bg" class="shp5" d="M247.99 132.38L68.48 132.38L45.43 166.61L271.55 166.61L247.99 132.38Z" />
+				<text id="level-3-text" style="transform: matrix(0.5,0,0,0.5,159.997,155.775)" >
+					<tspan x="-19.358" y="0" class="txt1">3
+</tspan>
+				</text>
+			</g>
+			<g id="level-2">
+				<path id="level-2-bg" class="shp6" d="M271.56 166.62L45.43 166.62L22.38 200.84L295.12 200.84L271.56 166.62Z" />
+				<text id="level-2-text" style="transform: matrix(0.5,0,0,0.5,159.997,188.467)" >
+					<tspan x="-18.75" y="0" class="txt1">2
+</tspan>
+				</text>
+			</g>
+			<g id="level-1">
+				<path id="level-1-bg" class="shp7" d="M22.37 200.85L-0.05 234.15L318.05 234.15L295.12 200.85L22.37 200.85Z" />
+				<text id="level-1-text" style="transform: matrix(0.5,0,0,0.5,159.997,221.795)" >
+					<tspan x="-11.665" y="0" class="txt1">1
+</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>
