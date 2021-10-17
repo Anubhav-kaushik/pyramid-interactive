@@ -225,7 +225,14 @@
     }
 
     #interactive-wrapper #pyramid-with-bg-design .level1-bg {
-        fill: #c04547
+        fill: #c04547;
+        transition: transform 2s forwards;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level1-bg:hover {
+        transform: scale(2);
+        fill: white;
+        cursor: pointer;
     }
 
     /* pyramid image styling - end */
@@ -336,13 +343,21 @@
         fill: #FFF5E8;
     }
 
+    #interactive-wrapper .pyramid-answer {
+        width: 50%;
+    }
+
+    #interactive-wrapper .text-answer {
+        width: 40%;
+        background-color: #FFF5E8;
+    }
 </style>
 
 <body>
 
     <div id="interactive-wrapper">
         <div id="interactive-inner-wrapper" class="interactive-inner-wrapper">
-            <section class="first-page">
+            <section class="first-page" id="question-container">
                 <figure class="main-logo">
                     <img src="interactive-name/psychic-logo.svg" alt="PSYCHIC SOURCE">
                 </figure>
@@ -3621,11 +3636,11 @@
                     </div>
                 </div>
                 <div class="start-button">
-                    <img src="interactive-name/arrow.svg" alt="Start Quiz">
+                    <img src="interactive-name/arrow.svg" alt="Start Quiz" id="start-button">
                 </div>
             </section>
 
-            <section class="result-page">
+            <section class="result-page" id="result-container">
                 <figure class="main-logo">
                     <img src="interactive-name/psychic-logo.svg" alt="PSYCHIC SOURCE">
                 </figure>
@@ -13308,7 +13323,13 @@
                         </figure>
                     </div>
                     <div class="text-answer">
-
+                        <div class="level-achieved"></div>
+                        <div class="icon">
+                            <img src="#" alt="" id="result-image">
+                        </div>
+                        <div class="heading" id="result-heading"></div>
+                        <div class="details" id="result-details"></div>
+                        <div class="solution" id="result-solution"></div>
                     </div>
                 </div>
 
@@ -13553,18 +13574,17 @@
     let currentQuestion = '1';
     const answerPyramid = document.querySelector('.pyramid-answer');
     const questionPyramid = document.querySelector('.pyramid-image');
+    const startButton = document.querySelector('#start-button');
 
     // functions - starts
     function showResult(level) {
-        $('#question-container').hide();
-        $('#result-container').show();
-        $('#result-heading').html(results[level].heading);
-        $('#result-details').html(results[level].details);
-        $('#result-solution').html(results[level].solution);
-        $('#result-image').attr('src', results[level].image);
+        document.querySelector('#result-heading').innerHTML = results[level].heading;
+        document.querySelector('#result-details').innerHTML = results[level].details;
+        document.querySelector('#result-solution').innerHTML = results[level].solution;
+        document.querySelector('#result-image').setAttribute('src', results[level].image);
         // change the level color
-        const levelBg = answerPyramid.querySelector(`#${level}-bg`);
-        levelBg.style.fill = `var(--interactive-${level}-color)`;
+        // const levelBg = answerPyramid.querySelector(`#${level}-bg`);
+        // levelBg.style.fill = `var(--interactive-${level}-color)`;
     }
 
     function checkAnswer(answer) {
@@ -13577,13 +13597,13 @@
         }
     }
 
-    function startQuiz(ques='1') {
+    function startQuiz(ques = '1') {
         currentQuestion = ques;
 
         const quizContainer = document.getElementById('quiz-container');
         const questionContainer = document.createElement('div');
         questionContainer.setAttribute('id', 'question-container');
-        
+
         const options = document.createElement('div');
         options.setAttribute('id', 'options');
 
@@ -13620,11 +13640,10 @@
         const level6 = pyramid.querySelector('#level-6');
         const level7 = pyramid.querySelector('#level-7');
 
-        
+
     }
-    
 
-
+    startButton.addEventListener('onClick', startQuiz);
 </script>
 
 </html>
