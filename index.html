@@ -43,12 +43,17 @@
         --interactive-red: #C14648;
         --interactive-resource-red: #BF4646;
         --interactive-background-color: #FDEED9;
+        --interactive-pyramid-bg-color: #FFF5E8;
     }
 
     * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+    }
+
+    .hidden {
+        display: none;
     }
 
     #interactive-wrapper {
@@ -135,6 +140,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     #interactive-wrapper #question-container {
@@ -153,6 +159,7 @@
         color: var(--interactive-red);
         font-size: 1.5em;
         margin-bottom: 1em;
+        cursor: pointer;
     }
 
     #interactive-wrapper .resources {
@@ -406,7 +413,63 @@
 
     #interactive-wrapper .text-answer {
         width: 30%;
-        background-color: #FFF5E8;
+        height: 100%;
+        background: url(interactive-name/result-board.svg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding: 2em 3em;
+    }
+
+    #interactive-wrapper .text-answer .heading {
+        margin-bottom: 1em;
+        font-weight: bold;
+        font-size: 2.5em;
+    }
+
+    #interactive-wrapper .text-answer .details {
+        margin-bottom: 8px;
+    }
+
+    #interactive-wrapper .text-answer .icon {
+        margin-bottom: 1em;
+    }
+
+    @media(max-width:1024px) {
+        #interactive-wrapper .pyramid-answer {
+            width: 100%;
+        }
+
+        #interactive-wrapper .text-answer {
+            width: 50%;
+        }
+
+        #interactive-wrapper .flex-container .pyramid-image {
+            flex-basis: 90%;
+        }
+
+        #interactive-wrapper .main-text {
+            flex-basis: 90%;
+            margin-bottom: 21px;
+        }
+    }
+
+    @media(max-width:900px) {
+        #interactive-wrapper .pyramid-answer {
+            width: 100%;
+        }
+
+        #interactive-wrapper .text-answer {
+            width: 60%;
+        }
+
+        #interactive-wrapper .flex-container .pyramid-image {
+            flex-basis: 90%;
+        }
+
+        #interactive-wrapper .main-text {
+            flex-basis: 90%;
+            margin-bottom: 21px;
+        }
     }
 </style>
 
@@ -3695,7 +3758,7 @@
                 <img src="interactive-name/arrow.svg" alt="Start Quiz" class="start-button">
             </section>
 
-            <section class="result-page" id="interactive-result-container">
+            <section class="result-page hidden" id="interactive-result-container">
                 <figure class="main-logo">
                     <img src="interactive-name/psychic-logo.svg" alt="PSYCHIC SOURCE">
                 </figure>
@@ -13380,11 +13443,36 @@
                     <div class="text-answer">
                         <div class="level-achieved"></div>
                         <div class="icon">
-                            <img src="#" alt="" id="result-image">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 144 103.9"
+                                style="enable-background:new 0 0 144 103.9;" xml:space="preserve" width="8em">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill: none;
+                                        stroke: #4C1E1E;
+                                        stroke-width: 3;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                                <g>
+                                    <g>
+                                        <path class="st0"
+                                            d="M56.8,94.6c-2.1,0.3-4.2,0.5-6.4,0.5c-23.7,0-42.9-19.4-42.9-43.1c0-0.1,0,0.1,0,0s0,0.1,0,0
+			c0-23.7,19.2-43.1,42.9-43.1c23.7,0,42.9,19.2,42.9,42.9c0,0.1,0,0.2,0,0.4v-0.4c0,0.1,0,0.2,0,0.4c0,15.2-7.9,28.6-19.8,36.2" />
+                                        <line class="st0" x1="51.6" y1="49.9" x2="71.9" y2="67.2" />
+                                        <path class="st0" d="M55.4,32.6c0,0,7.3,5.7,16.4,14.3" />
+                                        <line class="st0" x1="92.1" y1="49.9" x2="71.9" y2="67.2" />
+                                        <path class="st0" d="M88.3,32.6c0,0-7.3,5.7-16.4,14.3" />
+                                        <path class="st0" d="M87.3,9.4c2.1-0.3,4.1-0.5,6.3-0.5c23.7,0,42.9,19.2,42.9,42.9c0,0.1,0,0.2,0,0.4v-0.4c0,0.1,0,0.2,0,0.4
+			c0,23.7-19.2,42.9-42.9,42.9c-23.7,0-42.9-19.4-42.9-43.1c0-0.1,0,0.1,0,0s0,0.1,0,0c0-15.6,8.4-29.4,20.9-36.9" />
+                                        <line class="st0" x1="71.9" y1="15.4" x2="71.9" y2="88.2" />
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
-                        <div class="heading" id="result-heading"></div>
-                        <div class="details" id="result-details"></div>
-                        <div class="solution" id="result-solution"></div>
+                        <div class="heading dancing-script" id="result-heading"></div>
+                        <div class="details cabin-regular" id="result-details"></div>
+                        <div class="solution cabin-regular" id="result-solution"></div>
                     </div>
                 </div>
 
@@ -13637,7 +13725,7 @@
     function reset() {
         const levelBg = answerPyramid.querySelector(`.${lastResultLevel}-bg`);
         levelBg.style.fill = `var(--interactive-pyramid-bg-color)`;
-        const levelText = answerPyramid.querySelector(`.${level}-text`);
+        const levelText = answerPyramid.querySelector(`.${lastResultLevel}-text`);
         levelText.style.fill = '#CEBAB1';
 
         const firstPage = document.querySelector('#interactive-first-page');
@@ -13646,10 +13734,10 @@
         resultPage.classList.toggle('hidden');
 
         const quizContainer = document.getElementById('quiz-container');
-        quizContainer.innerHTML = '<p class="cabin-regular">The universe vibrates at seven levels of consciousness. As you transcend from one level to the next, your vibrations increase and your view of the universe becomes broader.</p><br><p class="cabin-regular">The highest levels of consciousness require full self-actualization and are reached by only the most enlightened individuals. Take this quiz to see which level you\'re most likely at and how you can increase your vibrations and transcend to higher consciousness.</p>';
+        quizContainer.innerHTML =
+            '<p class="cabin-regular">The universe vibrates at seven levels of consciousness. As you transcend from one level to the next, your vibrations increase and your view of the universe becomes broader.</p><br><p class="cabin-regular">The highest levels of consciousness require full self-actualization and are reached by only the most enlightened individuals. Take this quiz to see which level you\'re most likely at and how you can increase your vibrations and transcend to higher consciousness.</p>';
 
         const textArea = document.querySelector('.text-answer');
-        textArea.innerHTML = "";
     }
 
     function showResult(level) {
@@ -13663,7 +13751,7 @@
         document.querySelector('#result-heading').innerHTML = results[level].heading;
         document.querySelector('#result-details').innerHTML = results[level].details;
         document.querySelector('#result-solution').innerHTML = results[level].solution;
-        document.querySelector('#result-image').setAttribute('src', results[level].image);
+        // document.querySelector('#result-image').setAttribute('src', results[level].image);
         // change the level color
         const levelBg = answerPyramid.querySelector(`.${level}-bg`);
         levelBg.style.fill = `var(--interactive-${level}-color)`;
@@ -13733,17 +13821,19 @@
         const level7 = pyramid.querySelector('#level-7');
 
         level1.addEventListener('mouseover', (ele) => {
-            console.log(ele.x);
+            
         });
 
     }
 
     startButton.addEventListener('click', () => {
         startQuiz();
+        startButton.style.display = 'none';
     });
 
     restartButton.addEventListener('click', () => {
-        reset();
+        startButton.style.display = 'inline-block';
+        reset(); 
     });
 
     pyramidHoverEffect();
