@@ -84,7 +84,11 @@
     }
 
     #interactive-wrapper .start-button {
-        padding: 0 0 1em;
+        cursor: pointer;
+    }
+
+    #interactive-wrapper .start-button:hover {
+        transform: translateY(-5px);
     }
 
     #interactive-wrapper .heading {
@@ -133,6 +137,18 @@
         align-items: center;
     }
 
+    #interactive-wrapper #question-container {
+        margin-bottom: 0.5em;
+    }
+
+    #interactive-wrapper .option {
+        margin-bottom: 0.5em;
+    }
+
+    #interactive-wrapper .option label {
+        margin-left: 0.5em;
+    }
+
     #interactive-wrapper .start-again {
         color: var(--interactive-red);
         font-size: 1.5em;
@@ -150,10 +166,6 @@
         padding: 1em;
     }
 
-    #interactive-wrapper .resources-content * {
-        margin-bottom: 0.5em;
-    }
-
     #interactive-wrapper .conclusion-to-all {
         text-align: center;
         margin: auto;
@@ -166,18 +178,20 @@
     #interactive-wrapper a {
         text-decoration: none;
         color: grey;
+        margin-bottom: 0.1em;
     }
 
     #interactive-wrapper .resources-content p {
         font-size: 1.2em;
         color: var(--interactive-red);
+        margin-bottom: 0.25em;
     }
 
 
 
     /* pyramid image styling - start*/
     #interactive-wrapper .flex-container .pyramid-image {
-        flex-basis: 32%;
+        flex-basis: 40%;
     }
 
     #interactive-wrapper #pyramid-with-bg-design tspan {
@@ -230,9 +244,52 @@
     }
 
     #interactive-wrapper #pyramid-with-bg-design .level1-bg:hover {
-        transform: scale(2);
-        fill: white;
         cursor: pointer;
+        stroke: var(--interactive-level-1-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level2-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-2-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level3-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-3-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level4-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-4-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level5-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-5-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level6-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-6-color);
+        stroke-width: 5px;
+        z-index: 10;
+    }
+
+    #interactive-wrapper #pyramid-with-bg-design .level7-bg:hover {
+        cursor: pointer;
+        stroke: var(--interactive-level-7-color);
+        stroke-width: 5px;
+        z-index: 10;
     }
 
     /* pyramid image styling - end */
@@ -348,7 +405,7 @@
     }
 
     #interactive-wrapper .text-answer {
-        width: 40%;
+        width: 30%;
         background-color: #FFF5E8;
     }
 </style>
@@ -357,7 +414,7 @@
 
     <div id="interactive-wrapper">
         <div id="interactive-inner-wrapper" class="interactive-inner-wrapper">
-            <section class="first-page" id="question-container">
+            <section class="first-page" id="interactive-first-page">
                 <figure class="main-logo">
                     <img src="interactive-name/psychic-logo.svg" alt="PSYCHIC SOURCE">
                 </figure>
@@ -3635,12 +3692,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="start-button">
-                    <img src="interactive-name/arrow.svg" alt="Start Quiz" id="start-button">
-                </div>
+                <img src="interactive-name/arrow.svg" alt="Start Quiz" class="start-button">
             </section>
 
-            <section class="result-page" id="result-container">
+            <section class="result-page" id="interactive-result-container">
                 <figure class="main-logo">
                     <img src="interactive-name/psychic-logo.svg" alt="PSYCHIC SOURCE">
                 </figure>
@@ -13498,71 +13553,71 @@
         },
         'Level 1': {
             'abort': true,
-            'answer': 'Level-1'
+            'answer': 'level-1'
         },
         'Level 2': {
             'abort': true,
-            'answer': 'Level-2'
+            'answer': 'level-2'
         },
         'Level 3': {
             'abort': true,
-            'answer': 'Level-3'
+            'answer': 'level-3'
         },
         'Level 4': {
             'abort': true,
-            'answer': 'Level-4'
+            'answer': 'level-4'
         },
         'Level 5': {
             'abort': true,
-            'answer': 'Level-5'
+            'answer': 'level-5'
         },
         'Level 6': {
             'abort': true,
-            'answer': 'Level-6'
+            'answer': 'level-6'
         },
         'Level 7': {
             'abort': true,
-            'answer': 'Level-7'
+            'answer': 'level-7'
         }
     }
     const results = {
-        'Level-1': {
+        'level-1': {
             'heading': 'Instinctual Survival',
             'details': 'At this primal, reactionary level, your main concern is basic survival. Your primary focus is on paying bills and handling basic necessities like groceries. Running into problems can feel like a life or death situation.',
             'solution': "<b>How to ascend:</b> Develop your skills for physical survival so you can expand your consciousness to consider the larger society around you.",
             'image': 'interactive-name/instinctual-survival.png'
         },
-        'Level-2': {
+        'level-2': {
             'heading': 'Relationship-Driven Consciousness',
             'details': 'Also referred to as the mass consciousness level, this is where your view of the world expands from individual survival to social achievement. You\'re driven by relationships and the pleasure of communion with others. You\'re concerned with finding love and feeling a sense of belonging.',
             'solution': "<b>How to ascend:</b> Develop an enduring sense of safety, love, and belonging.",
             'image': 'interactive-name/relationship-driven-consciousness.png'
         },
-        'Level-3': {
+        'level-3': {
             'heading': 'Conformist Aspiration',
             'details': 'Your tribal mentality is strong, driving most of your thoughts and actions. You do an outstanding job of caring for and protecting those in your close social circle, but you may perceive "outsiders" as a threat. The customs, rules, and rituals of your particular group are very important to you, and you have a strong desire for approval and acceptance within the tribe.',
             'solution': "<b>How to ascend:</b> Develop an enduring sense of self-esteem and self-worth that's not defined by others.",
             'image': 'interactive-name/Conformist Aspiration.png'
         },
-        'Level-4': {
+        'level-4': {
             'heading': 'Transformation',
             'details': 'The fourth level is a transformative state where your view of the world expands significantly and your thought processes begin to move in an entirely different direction. Here you find the beginning of your path to self-actualization. As you release your fear-based beliefs, you will begin to develop a system of morals and values that\'s defined by your inner truths and not those of others.',
             'solution': "<b>How to ascend:</b> Release your fears and limiting beliefs.",
             'image': 'interactive-name/Transformation.png'
         },
-        'Level-5': {
+        'level-5': {
             'heading': 'Pluralistic Cohesion',
             'details': "You've begun to align yourself with a higher power and are driven primarily by a love for and acceptance of all others. You're driven to find your soul's purpose and make a difference in your community. Promoting social cohesion is very important to you.",
             'solution': "<b>How to ascend:</b> Discover the meaning of your existence and identify your soul's purpose.",
             'image': 'interactive-name/Pluralistic Cohesion.png'
         },
-        'Level-6': {
+        'level-6': {
             'heading': 'Integral Connection',
             'details': 'You\'ve ascended to the level where you can see that all existence is interconnected.  Helping others and making a lasting difference in the world are critically important to you. You\'re driven by the desire to imagine all that could be.',
             'solution': "<b>How to ascend:</b> Actualize your soul's purpose.",
             'image': 'interactive-name/Integral Connection.png'
         },
-        'Level-7': {
+        'level-7': {
             'heading': 'Transcendent Mastery',
             'details': 'You have attained the highest level of consciousness possible on this plane of existence. At this level, you\'re on par with masters like Mother Teresa and Gandhi. Your life is consumed with selfless service and the ongoing actualization of your soul\'s ultimate purpose on this earth.',
             'solution': "<b>How to ascend:</b> Actualize your soul's purpose.",
@@ -13574,17 +13629,47 @@
     let currentQuestion = '1';
     const answerPyramid = document.querySelector('.pyramid-answer');
     const questionPyramid = document.querySelector('.pyramid-image');
-    const startButton = document.querySelector('#start-button');
+    const startButton = document.querySelector('.start-button');
+    let lastResultLevel = 0;
+    const restartButton = document.querySelector('.start-again');
 
     // functions - starts
+    function reset() {
+        const levelBg = answerPyramid.querySelector(`.${lastResultLevel}-bg`);
+        levelBg.style.fill = `var(--interactive-pyramid-bg-color)`;
+        const levelText = answerPyramid.querySelector(`.${level}-text`);
+        levelText.style.fill = '#CEBAB1';
+
+        const firstPage = document.querySelector('#interactive-first-page');
+        const resultPage = document.querySelector('#interactive-result-container');
+        firstPage.classList.toggle('hidden');
+        resultPage.classList.toggle('hidden');
+
+        const quizContainer = document.getElementById('quiz-container');
+        quizContainer.innerHTML = '<p class="cabin-regular">The universe vibrates at seven levels of consciousness. As you transcend from one level to the next, your vibrations increase and your view of the universe becomes broader.</p><br><p class="cabin-regular">The highest levels of consciousness require full self-actualization and are reached by only the most enlightened individuals. Take this quiz to see which level you\'re most likely at and how you can increase your vibrations and transcend to higher consciousness.</p>';
+
+        const textArea = document.querySelector('.text-answer');
+        textArea.innerHTML = "";
+    }
+
     function showResult(level) {
+        lastResultLevel = level;
+
+        const firstPage = document.querySelector('#interactive-first-page');
+        const resultPage = document.querySelector('#interactive-result-container');
+        firstPage.classList.toggle('hidden');
+        resultPage.classList.toggle('hidden');
+
         document.querySelector('#result-heading').innerHTML = results[level].heading;
         document.querySelector('#result-details').innerHTML = results[level].details;
         document.querySelector('#result-solution').innerHTML = results[level].solution;
         document.querySelector('#result-image').setAttribute('src', results[level].image);
         // change the level color
-        // const levelBg = answerPyramid.querySelector(`#${level}-bg`);
-        // levelBg.style.fill = `var(--interactive-${level}-color)`;
+        const levelBg = answerPyramid.querySelector(`.${level}-bg`);
+        levelBg.style.fill = `var(--interactive-${level}-color)`;
+
+        const levelText = answerPyramid.querySelector(`.${level}-text`);
+        levelText.style.fill = '#fff';
     }
 
     function checkAnswer(answer) {
@@ -13603,6 +13688,7 @@
         const quizContainer = document.getElementById('quiz-container');
         const questionContainer = document.createElement('div');
         questionContainer.setAttribute('id', 'question-container');
+        questionContainer.classList.add('cabin-bold')
 
         const options = document.createElement('div');
         options.setAttribute('id', 'options');
@@ -13610,6 +13696,9 @@
         questionContainer.innerHTML = quizQuestions[ques]['question'];
 
         for (let key in quizQuestions[ques]['answers']) {
+            const optionDiv = document.createElement('div');
+            optionDiv.classList.add('option')
+
             const option = document.createElement('input');
             option.setAttribute('type', 'radio');
             option.setAttribute('name', 'quiz-question');
@@ -13620,14 +13709,17 @@
             const label = document.createElement('label');
             label.setAttribute('for', key);
             label.innerHTML = key;
-            options.appendChild(option);
-            options.appendChild(label);
+
+            optionDiv.appendChild(option);
+            optionDiv.appendChild(label);
+
+            options.append(optionDiv);
         }
 
         quizContainer.innerHTML = '';
 
         quizContainer.append(questionContainer);
-        questionContainer.append(options);
+        quizContainer.append(options);
     }
 
     function pyramidHoverEffect() {
@@ -13640,10 +13732,21 @@
         const level6 = pyramid.querySelector('#level-6');
         const level7 = pyramid.querySelector('#level-7');
 
+        level1.addEventListener('mouseover', (ele) => {
+            console.log(ele.x);
+        });
 
     }
 
-    startButton.addEventListener('onClick', startQuiz);
+    startButton.addEventListener('click', () => {
+        startQuiz();
+    });
+
+    restartButton.addEventListener('click', () => {
+        reset();
+    });
+
+    pyramidHoverEffect();
 </script>
 
 </html>
